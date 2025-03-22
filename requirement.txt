@@ -1,0 +1,6 @@
+# FinLit Quest Dependencies
+firebase-admin==6.1.0
+firebase-tools==12.4.0
+chart.js==4.3.0
+fontawesome==6.4.0
+poppins-font==2.0.0

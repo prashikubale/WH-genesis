@@ -37,4 +37,4 @@ working
 
 1. 1. Clone the repository:
 ```bash
-git clone https://github.com/prashikubale/WH-genesis
+git clone https://github.com/prashikubale/WH-genesis.git

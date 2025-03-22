@@ -31,12 +31,13 @@ An interactive financial literacy learning platform that gamifies the process of
 - Chart.js
 - Font Awesome
 
-## 📱 Screenshots
-
-[Add your application screenshots here]
-
+Deployed
+whfinlit.netlify.app
 ## 🛠️ Installation
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/prashikubale/WH-genesis.git
+
+
+

@@ -34,3 +34,7 @@ An interactive financial literacy learning platform that gamifies the process of
 ## 📱 Screenshots
 
 working
+
+1. 1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/finlit-genesis.git

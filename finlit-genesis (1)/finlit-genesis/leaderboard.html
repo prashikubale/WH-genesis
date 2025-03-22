@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinLit Quest - Leaderboard</title>
+  <link rel="stylesheet" href="css/leaderboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">FinLit Quest</div>
+      <div class="nav-links">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="game.html"><i class="fas fa-gamepad"style="color: #9B59B6;"></i> Games</a>
+        <a href="#" class="active"><i class="fas fa-trophy" style="color: #FFD700;"></i> Leaderboard</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt" style="color: #FF0000;"></i> Logout</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>Global Leaderboard</h1>
+        <div class="user-score">
+          <i class="fas fa-star"></i>
+          <span id="userScore">0</span> points
+        </div>
+      </header>
+
+      <div class="leaderboard-container">
+        <div class="top-players">
+          <div class="podium">
+            <div class="podium-item second">
+              <div class="crown"><i class="fas fa-medal"></i></div>
+              <div class="avatar">2</div>
+              <div class="name">-</div>
+              <div class="score">-</div>
+            </div>
+            <div class="podium-item first">
+              <div class="crown"><i class="fas fa-crown"></i></div>
+              <div class="avatar">1</div>
+              <div class="name">-</div>
+              <div class="score">-</div>
+            </div>
+            <div class="podium-item third">
+              <div class="crown"><i class="fas fa-medal"></i></div>
+              <div class="avatar">3</div>
+              <div class="name">-</div>
+              <div class="score">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="leaderboard-table">
+          <table id="leaderboard">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Score</th>
+                <th>Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Leaderboard data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/firebase.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "auth.html";
+      } else {
+        updateUserScore();
+        loadLeaderboard();
+      }
+    });
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+
+    function updateUserScore() {
+      // Mock score update - replace with actual database call
+      document.getElementById('userScore').textContent = '150';
+    }
+
+    function loadLeaderboard() {
+      firebase.firestore().collection('scores')
+        .orderBy('points', 'desc').limit(10)
+        .get().then(snapshot => {
+          const tbody = document.querySelector('#leaderboard tbody');
+          const topThree = [];
+          
+          snapshot.forEach((doc, index) => {
+            const data = doc.data();
+            if (index < 3) {
+              topThree[index] = {
+                name: `User ${data.userId.slice(0, 6)}`,
+                score: data.points
+              };
+            }
+            
+            tbody.innerHTML += `
+              <tr>
+                <td><span class="rank">${index + 1}</span></td>
+                <td>
+                  <div class="player-info">
+                    <span class="player-name">User ${data.userId.slice(0, 6)}</span>
+                  </div>
+                </td>
+                <td>${data.points}</td>
+                <td>${Math.floor(data.points / 100)}</td>
+              </tr>
+            `;
+          });
+
+          // Update podium
+          updatePodium(topThree);
+        });
+    }
+
+    function updatePodium(topThree) {
+      const positions = ['first', 'second', 'third'];
+      positions.forEach((pos, index) => {
+        if (topThree[index]) {
+          document.querySelector(`.${pos} .name`).textContent = topThree[index].name;
+          document.querySelector(`.${pos} .score`).textContent = topThree[index].score;
+        }
+      });
+    }
+  </script>
+  
+</body>
+</html>

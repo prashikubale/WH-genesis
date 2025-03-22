@@ -1,0 +1,261 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #60a5fa;
+    --dark-bg: #111827;
+    --darker-bg: #030712;
+    --card-bg: #1f2937;
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--darker-bg);
+    color: var(--text-color);
+}
+
+/* Game Container Styles */
+.game-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darker-bg);
+}
+
+/* Navigation Styles */
+.game-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-bg);
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--primary-color);
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Game Content Styles */
+.game-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#budget-game {
+    background-color: var(--dark-bg);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-header h1 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.month-display, .balance {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+/* Budget Grid Styles */
+.budget-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.income-section, .expenses-section {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.income-section h2, .expenses-section h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.income-amount {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Expense Items Styles */
+.expense-items {
+    display: grid;
+    gap: 25px;
+}
+
+.expense-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+}
+
+.expense-item label {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.expense-item input[type="range"] {
+    width: 100%;
+    height: 8px;
+    background: var(--darker-bg);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.expense-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.expense-item input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.expense-value {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Action Button Styles */
+.action-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 30px auto 0;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.action-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .game-content {
+        padding: 15px;
+    }
+    
+    .budget-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .budget-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-header h1 {
+        font-size: 2rem;
+    }
+
+    .expense-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .income-amount {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-nav {
+        padding: 10px;
+    }
+
+    #budget-game {
+        padding: 20px;
+    }
+
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}

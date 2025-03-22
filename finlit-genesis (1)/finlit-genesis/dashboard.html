@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinLit Quest - Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="firebase.js"></script>
+<script src="js/dashboard.js"></script>
+</head>
+<body>
+  
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">FinLit Quest</div>
+      <div class="nav-links">
+        <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="game.html"><i class="fas fa-gamepad" style="color: #9B59B6;"></i> Games</a>
+        <a href="leaderboard.html"><i class=" fas fa-trophy" style="color: #FFD700;"></i> Leaderboard</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"style="color: #FF0000;"></i> Logout</a>
+        <a href="youtube.html"><i class=" fas fa-Video" style="color: #d30a0a;"></i> Learn</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>Welcome back, <span id="userName">Player</span>!</h1>
+        <div class="user-score">
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <span id="userScore">0</span> points
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+        <div class="card progress-card">
+          <h2>Your Progress</h2>
+          <canvas id="progressChart"></canvas>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Quick Stats</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+              <h3>Completed</h3>
+              <p id="completedGames">0</p>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <h3>Time Played</h3>
+              <p id="timePlayed">0h</p>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-award"style="color: #FFD700;"></i>
+              <h3>Achievements</h3>
+              <p id="achievements">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card recent-activity">
+          <h2>Recent Activity</h2>
+          <div id="activityFeed" class="activity-feed">
+            <!-- Activity items will be added here dynamically -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script>
+    // Auth check
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "auth.html";
+      } else {
+        document.getElementById('userName').textContent = user.displayName || 'Player';
+        initializeDashboard();
+      }
+    });
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+
+    function initializeDashboard() {
+      // Progress Chart
+      const ctx = document.getElementById('progressChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+          datasets: [{
+            label: 'Learning Progress',
+            data: [30, 45, 60, 85],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e5e7eb'
+              }
+            },
+            x: {
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e5e7eb'
+              }
+            }
+          }
+        }
+      });
+
+      // Mock activity feed
+      const activities = [
+        'Completed Basic Finance Quiz',
+        'Earned Budget Master Badge',
+        'Started Investment Tutorial',
+        'Reached Level 5'
+      ];
+
+      const activityFeed = document.getElementById('activityFeed');
+      activities.forEach(activity => {
+        const div = document.createElement('div');
+        div.className = 'activity-item';
+        div.innerHTML = `<i class="fas fa-circle"></i>${activity}`;
+        activityFeed.appendChild(div);
+      });
+    }
+  </script>
+</body> tag -->
+<link rel="stylesheet" href="css/chatbot.css">
+<script src="js/chatbot.js"></script>
+</body>
+</html>

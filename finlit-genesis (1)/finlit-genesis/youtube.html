@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Learning Hub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #030712;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 50px;
+      width: 90%;
+      max-width: 1400px;
+      margin: 30px 0;
+      background-color: #fff;
+      border-radius: 25px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .video-card {
+      background-color: #fafafa;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 24px rgba(0,0,0,0.15);
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .video-card p {
+      margin: 15px;
+      color: #555;
+      font-weight: 500;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    @media(max-width: 768px) {
+      .video-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 30px;
+      }
+      .video-card img {
+        height: 180px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .video-card img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>📚 Financial Literacy: Master Your Money</h1>
+
+<div class="video-container">
+  <!-- Video Cards -->
+  <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=DNYCgsyOAW4&pp=ygUOZmluYW5jZSBiYXNpY3M%3Dv=VIDEO_ID1', '_blank')">
+    <img src="png\Screenshot 2025-03-22 231053.png" alt="Video Thumbnail" />
+    <p>Financial Basics</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/kywWhBXyFg0?si=WcYAiNotL_ThnvIev=VIDEO_ID2', '_blank')">
+    <img src="assets\Screenshot 2025-03-22 231146.png" alt="Video Thumbnail" />
+    <p>How to Save Money</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/lNdOtlpmH5U?si=wYxHJnf86iYElM1Av=VIDEO_ID3', '_blank')">
+    <img src="assets\Screenshot 2025-03-22 231508.png" alt="Video Thumbnail" />
+    <p>Investing 101</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/gMKJeTstu4E?si=RY5BJjBAgZofXrKLv=VIDEO_ID4', '_blank')">
+    <img src="assets\Screenshot 2025-03-22 231936.png" alt="Video Thumbnail" />
+    <p>Loan Essentials</p>
+  </div>
+  <!-- Add More Video Cards Below -->
+  <div class="video-card" onclick="window.open('https://youtu.be/vksHgs3It3o?si=wuarw3ShYkjDqF84v=VIDEO_ID5', '_blank')">
+    <img src="png\Screenshot 2025-03-22 231951.png" alt="Video Thumbnail" />
+    <p>Budgeting Tricks</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/SnBu2_l_sZ0?si=1CT1Yy8tUol8w3BUv=VIDEO_ID6', '_blank')">
+    <img src="png\Screenshot 2025-03-22 231957.png" alt="Video Thumbnail" />
+    <p>Credit Cards Explained</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/MQpbxF_RngI?si=2A7Or0Xd4W5cnntGv=VIDEO_ID7', '_blank')">
+    <img src="png\Screenshot 2025-03-22 232004.png" alt="Video Thumbnail" />
+    <p>Tax Basics</p>
+  </div>
+  <div class="video-card" onclick="window.open('https://youtu.be/vO2KGm8NM8E?si=BhTMGibQ2DVS7FbCv=VIDEO_ID8', '_blank')">
+    <img src="png\Screenshot 2025-03-22 232204.png" alt="Video Thumbnail" />
+    <p>Emergency Funds</p>
+  </div>
+  <!-- Keep adding more for scroll effect -->
+</div>
+
+</body>
+</html>

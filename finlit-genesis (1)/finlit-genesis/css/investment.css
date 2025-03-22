@@ -1,0 +1,385 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #60a5fa;
+    --dark-bg: #111827;
+    --darker-bg: #030712;
+    --card-bg: #1f2937;
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--darker-bg);
+    color: var(--text-color);
+}
+
+.game-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--darker-bg);
+}
+
+.game-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-bg);
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--primary-color);
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.game-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.investment-game {
+    background-color: var(--dark-bg);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-header h1 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.portfolio-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.summary-card h3 {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.summary-card .value {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.investment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.investment-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.investment-card:hover {
+    transform: translateY(-5px);
+}
+
+.investment-card h3 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.investment-card p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.investment-stats {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+
+.risk-level {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.risk-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.risk-low { background-color: #10B981; }
+.risk-medium { background-color: #F59E0B; }
+.risk-high { background-color: #EF4444; }
+
+.action-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 30px auto 0;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.action-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+    .game-content {
+        padding: 15px;
+    }
+    
+    .portfolio-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .game-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .portfolio-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .game-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-nav {
+        padding: 10px;
+    }
+
+    .investment-game {
+        padding: 20px;
+    }
+
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .summary-card .value {
+        font-size: 1.5rem;
+    }
+}
+/* Investment Grid Styles */
+.investment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.stocks-list, .portfolio-section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.stocks-list h2, .portfolio-section h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--dark-bg);
+}
+
+.stock-items, .portfolio-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Stock Item Styles */
+.stock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.stock-item:hover {
+    transform: translateX(5px);
+}
+
+.stock-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stock-name {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.stock-price {
+    color: var(--text-muted);
+}
+
+.stock-change {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.stock-change.positive {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.stock-change.negative {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}
+
+/* Trading Controls Styles */
+.trading-controls {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.trading-controls select,
+.trading-controls input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+
+.trading-controls select:focus,
+.trading-controls input:focus {
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.trading-controls option {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+}
+
+.trading-controls .action-btn {
+    min-width: 100px;
+    margin: 0;
+}
+
+#buyBtn {
+    background-color: #10B981;
+}
+
+#buyBtn:hover {
+    background-color: #059669;
+}
+
+#sellBtn {
+    background-color: #EF4444;
+}
+
+#sellBtn:hover {
+    background-color: #DC2626;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .investment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trading-controls {
+        flex-direction: column;
+    }
+
+    .trading-controls select,
+    .trading-controls input,
+    .trading-controls .action-btn {
+        width: 100%;
+    }
+}

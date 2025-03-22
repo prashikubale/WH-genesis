@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Pro - FinLit Quest</title>
+  <link rel="stylesheet" href="../css/investment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="game-container">
+    <nav class="game-nav">
+      <a href="../game.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Games</a>
+      <div class="game-stats">
+        <span class="score">Score: <span id="score">0</span></span>
+        <span class="time">Time: <span id="timer">20:00</span></span>
+      </div>
+    </nav>
+
+    <div class="game-content">
+      <div id="investment-game">
+        <div class="game-header">
+          <h1>Investment Pro</h1>
+          <div class="portfolio-value">Portfolio Value: Rs <span id="portfolioValue">10000</span></div>
+        </div>
+
+        <div class="market-view">
+          <canvas id="marketChart"></canvas>
+        </div>
+
+        <div class="investment-grid">
+          <div class="stocks-list">
+            <h2>Available Stocks</h2>
+            <div class="stock-items" id="stocksList">
+              <!-- Stocks will be added dynamically -->
+            </div>
+          </div>
+
+          <div class="portfolio-section">
+            <h2>Your Portfolio</h2>
+            <div class="portfolio-items" id="portfolioList">
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="trading-controls">
+          <select id="stockSelect">
+            <option value="">Select Stock</option>
+          </select>
+          <input type="number" id="shareAmount" placeholder="Number of shares">
+          <button id="buyBtn" class="action-btn">Buy</button>
+          <button id="sellBtn" class="action-btn">Sell</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../firebase.js"></script>
+  <script src="../js/investment-game.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinLit Quest - Games</title>
+  <link rel="stylesheet" href="css/game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="firebase.js"></script>
+<script src="js/dashboard.js"></script>
+</head>
+<body>
+  
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">FinLit Quest</div>
+      <div class="nav-links">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#" class="active"><i class="fas fa-gamepad" style="color: #9B59B6;"></i> Games</a>
+        <a href="leaderboard.html"><i class="fas fa-trophy " style="color: #FFD700;"></i> Leaderboard</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt" style="color: #FF0000;"></i> Logout</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>Choose Your Game</h1>
+        <div class="user-score">
+          <i class="fas fa-star"style="color: #FFD700;"></i>
+          <span id="userScore">0</span> points
+        </div>
+      </header>
+
+      <div class="games-grid">
+        <div class="game-card">
+          <div class="game-banner">
+           
+            <div class="game-difficulty" style="color: #4CAF50;">Beginner</div>
+          </div>
+          <div class="game-content">
+            <div class="game-icon">
+              <i class="fas fa-piggy-bank"></i>
+            </div>
+            <h2>Budget Master</h2>
+            <p>Learn budgeting basics through an interactive simulation. Manage monthly expenses and save for the future!</p>
+            <div class="game-stats">
+              <span><i class="fas fa-clock"></i> 15 min</span>
+              <span><i class="fas fa-star"style="color: #FFD700;"></i> 100 pts</span>
+              <span><i class="fas fa-trophy" style="color: #CD7F32;"></i> Bronze</span>
+            </div>
+            <button class="play-btn" onclick="startGame('budget')">
+              <i class="fas fa-play"></i> Play Now
+            </button>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-banner">
+            
+            <div class="game-difficulty"style="color: #FF9800;">Intermediate</div>
+          </div>
+          <div class="game-content">
+            <div class="game-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h2>Investment Pro</h2>
+            <p>Master the art of investing in this strategy game. Buy low, sell high, and build your portfolio!</p>
+            <div class="game-stats">
+              <span><i class="fas fa-clock"></i> 20 min</span>
+              <span><i class="fas fa-star"style="color: #FFD700;"></i> 150 pts</span>
+              <span><i class="fas fa-trophy" style="color: #C0C0C0;"></i> Silver</span>
+            </div>
+            <button class="play-btn" onclick="startGame('investment')">
+              <i class="fas fa-play"></i> Play Now
+            </button>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-banner">
+            <div class="game-difficulty" style="color:#FF9800;">Intermediate</div>
+          </div>
+          <div class="game-content">
+            <div class="game-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <h2>SIP Simulator</h2>
+            <p>Learn the power of systematic investment planning! Simulate different investment scenarios and understand compound growth.</p>
+            <div class="game-stats">
+              <span><i class="fas fa-clock"></i> 15 min</span>
+              <span><i class="fas fa-star" style="color: #FFD700;"></i> 150 pts</span>
+              <span><i class="fas fa-trophy" style="color: #C0C0C0;"></i> Silver</span>
+            </div>
+            <button class="play-btn" onclick="startGame('sip')">
+              <i class="fas fa-play"></i> Play Now
+            </button>
+          </div>
+        </div>
+
+
+<!-- Savings Challenge Card -->
+<div class="game-card">
+  <div class="game-banner">
+   
+    <div class="game-difficulty" style="color:#4CAF50;">Beginner</div>
+  </div>
+  <div class="game-content">
+    <div class="game-icon">
+      <i class="fas fa-piggy-bank"></i>
+    </div>
+    <h2>Savings Challenge</h2>
+    <p>Master the art of saving! Complete weekly challenges, set financial goals, and build your emergency fund through smart decisions.</p>
+    <div class="game-stats">
+      <span><i class="fas fa-clock"></i> 20 min</span>
+      <span><i class="fas fa-star"style="color: #FFD700;"></i> 150 pts</span>
+      <span><i class="fas fa-trophy" style="color: #C0C0C0;" ></i> Silver</span>
+    </div>
+    <button class="play-btn" onclick="startGame('savings')">
+      <i class="fas fa-play"></i> Play Now
+    </button>
+  </div>
+</div>
+<!-- Financial Quiz Card -->
+<div class="game-card">
+  <div class="game-banner">
+
+    <div class="game-difficulty" style="color:#4CAF50;">Beginner</div>
+  </div>
+  <div class="game-content">
+    <div class="game-icon">
+      <i class="fas fa-question-circle"></i>
+    </div>
+    <h2>Financial Quiz</h2>
+    <p>Test your financial knowledge! Answer questions about budgeting, saving, and investing to improve your financial literacy.</p>
+    <div class="game-stats">
+      <span><i class="fas fa-clock"></i> 10 min</span>
+      <span><i class="fas fa-star"style="color: #FFD700;"></i> 100 pts</span>
+      <span><i class="fas fa-trophy" style="color: #CD7F32;"></i> Bronze</span>
+    </div>
+    <button class="play-btn" onclick="startGame('quiz')">
+      <i class="fas fa-play"></i> Play Now
+    </button>
+  </div>
+</div>
+
+        <div class="game-card locked">
+          <div class="game-banner">
+           
+            <div class="game-difficulty" style="color: #F44336;">Advanced </div>
+          </div>
+          <div class="game-content">
+            <div class="game-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h2>Crypto Challenge</h2>
+            <p>Coming soon! Explore cryptocurrency trading basics in this advanced simulation game.</p>
+            <div class="game-stats">
+              <span><i class="fas fa-clock"></i> 25 min</span>
+              <span><i class="fas fa-star"style="color: #FFD700;"></i> 200 pts</span>
+              <span><i class="fas fa-trophy" style="color: #FFD700;"></i> Gold</span>
+            </div>
+            <button class="play-btn" disabled>
+              <i class="fas fa-lock"></i> Coming Soon
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "auth.html";
+      } else {
+        updateUserScore();
+      }
+    });
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+
+    function updateUserScore() {
+      firebase.firestore().collection('scores')
+        .where('userId', '==', firebase.auth().currentUser.uid)
+        .get()
+        .then(snapshot => {
+          let totalScore = 0;
+          snapshot.forEach(doc => {
+            totalScore += doc.data().points;
+          });
+          document.getElementById('userScore').textContent = totalScore;
+        });
+    }
+
+    function startGame(gameType) {
+  switch(gameType) {
+    case 'budget':
+      window.location.href = 'games/budget-master.html';
+      break;
+    case 'investment':
+      window.location.href = 'games/investment-pro.html';
+      break;
+    case 'debt':
+      window.location.href = 'games/sip-stimulator.html';
+      break;
+      case 'savings':
+      window.location.href = 'games/savings-challenge.html';
+      break;
+      case 'quiz':
+      window.location.href = 'games/quiz-basics.html';
+      break;
+      case 'sip':
+      window.location.href = 'games/sip-simulator.html';
+      break;
+    default:
+      alert('Game not available yet!');
+  }
+}
+  </script>
+</body>
+<link rel="stylesheet" href="css/chatbot.css">
+<script src="js/chatbot.js"></script>
+</body>
+</html>

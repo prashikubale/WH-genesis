@@ -1,0 +1,375 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --success-color: #059669;
+    --error-color: #dc2626;
+    --warning-color: #d97706;
+    --dark-bg: #111827;
+    --darker-bg: #030712;
+    --card-bg: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation */
+.game-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-nav h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.score-display {
+    font-size: 1.4rem;
+    margin-top: 0.75rem;
+    color: #FFD700;
+    font-weight: 600;
+}
+
+/* Game Content */
+.game-content {
+    display: grid;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+/* SIP Controls */
+.sip-controls {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.control-group {
+    margin-bottom: 2rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    accent-color: #3b82f6;
+    height: 6px;
+}
+
+.control-group span {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 2.5rem;
+}
+
+.result-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.result-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #3b82f6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart Container */
+.chart-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin: 2.5rem 0;
+    height: 450px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Challenges Section */
+.challenges-section {
+    margin-top: 2.5rem;
+}
+
+.challenges-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.challenge-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.challenge-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.75rem;
+    border-radius: 16px;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.challenge-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.challenge-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Button Styles */
+.btn.primary {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 1.25rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.btn.primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1rem;
+    }
+
+    .game-nav h1 {
+        font-size: 1.8rem;
+    }
+
+    .score-display {
+        font-size: 1.2rem;
+    }
+
+    .sip-controls {
+        padding: 1.5rem;
+    }
+
+    .result-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .challenge-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        height: 350px;
+        padding: 1.5rem;
+    }
+
+    .btn.primary {
+        padding: 1rem 2rem;
+    }
+}
+.back-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--primary-color);
+}
+/* Game Container */
+.game-container {
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 2rem 4rem;
+    background: var(--darker-bg);
+    color: var(--text-primary);
+}
+
+/* Navigation */
+.game-nav {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-nav h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Chart Layout Updates */
+.chart-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem auto;
+    max-width: 800px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    margin: 0 auto;
+}
+ 
+/* Results Section */
+.results-section {
+    margin-top: 2.5rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.result-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.result-card {
+    flex: 1;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chart-container {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 16px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width: 1024px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        aspect-ratio: 16/9;
+    }
+}
+
+/* Responsive Updates */
+@media (max-width: 1200px) {
+    .game-container {
+        padding: 2rem;
+    }
+
+    .result-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1rem;
+    }
+
+    .game-nav h1 {
+        font-size: 2rem;
+    }
+
+    .chart-container {
+        height: 400px;
+        padding: 1rem;
+    }
+}

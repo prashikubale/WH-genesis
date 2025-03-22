@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Challenge - FinLit Quest</title>
+    <link rel="stylesheet" href="../css/savings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <nav class="game-nav">
+            <a href="../game.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Games</a>
+        </nav>
+        <header class="game-header">
+            <h1>Savings Challenge</h1>
+            <div class="stats-bar">
+                <div class="stat">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>Savings: $<span id="savingsAmount">0</span></span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span>Score: <span id="score">0</span></span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-calendar"></i>
+                    <span>Week: <span id="currentWeek">1</span>/52</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-content">
+            <div class="dashboard">
+                <div class="savings-goals">
+                    <h2>Savings Goals</h2>
+                    <div class="goals-grid" id="goalsGrid">
+                        <div class="goal-card emergency-fund">
+                            <h3>Emergency Fund</h3>
+                            <div class="progress-bar">
+                                <div class="progress" id="emergencyProgress"></div>
+                            </div>
+                            <p>Target: $1,000</p>
+                        </div>
+                        <div class="goal-card vacation">
+                            <h3>Vacation Fund</h3>
+                            <div class="progress-bar">
+                                <div class="progress" id="vacationProgress"></div>
+                            </div>
+                            <p>Target: $2,000</p>
+                        </div>
+                        <div class="goal-card education">
+                            <h3>Education Fund</h3>
+                            <div class="progress-bar">
+                                <div class="progress" id="educationProgress"></div>
+                            </div>
+                            <p>Target: $5,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weekly-challenge">
+                    <h2>Weekly Challenge</h2>
+                    <div class="challenge-card" id="currentChallenge">
+                        <div class="challenge-content">
+                            <h3 id="challengeTitle">Coffee Budget Challenge</h3>
+                            <p id="challengeDescription">Skip your daily coffee purchase and save the money instead.</p>
+                            <div class="challenge-reward">
+                                <span>Potential Savings: $<span id="potentialSavings">25</span></span>
+                                <span>Bonus Points: <span id="bonusPoints">100</span></span>
+                            </div>
+                        </div>
+                        <button id="acceptChallenge" class="btn primary">Accept Challenge</button>
+                    </div>
+                </div>
+
+                <div class="income-expenses">
+                    <h2>Income & Expenses</h2>
+                    <div class="transaction-form">
+                        <select id="transactionType">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                        <input type="text" id="transactionDescription" placeholder="Description">
+                        <input type="number" id="transactionAmount" placeholder="Amount">
+                        <button id="addTransaction" class="btn secondary">Add</button>
+                    </div>
+                    <div class="transactions-list" id="transactionsList">
+                        <!-- Transactions will be listed here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="savings-tips">
+                <h2>Financial Tips</h2>
+                <div class="tips-carousel" id="tipsCarousel">
+                    <!-- Tips will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="achievements-panel" id="achievementsPanel">
+            <h2>Achievements</h2>
+            <div class="achievements-grid">
+                <!-- Achievements will be added here -->
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="../js/firebase.js"></script>
+    <script src="../js/savings-game.js"></script>
+</body>
+</html>

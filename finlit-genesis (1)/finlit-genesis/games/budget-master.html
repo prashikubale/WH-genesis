@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta chaRs et="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Master - FinLit Quest</title>
+  <link rel="stylesheet" href="../css/budget.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+  <div class="game-container">
+    <nav class="game-nav">
+      <a href="../game.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Games</a>
+      <div class="game-stats">
+        <span class="score">Score: <span id="score">0</span></span>
+        <span class="time">Time: <span id="timer">15:00</span></span>
+      </div>
+    </nav>
+
+    <div class="game-content">
+      <div id="budget-game">
+        <div class="game-header">
+          <h1>Budget Master</h1>
+          <div class="month-display">Month: <span id="currentMonth">1</span>/12</div>
+          <div class="balance">Balance: Rs <span id="currentBalance">1000</span></div>
+        </div>
+
+        <div class="budget-grid">
+          <div class="income-section">
+            <h2>Income</h2>
+            <div class="income-amount"style="color:#4CAF50;">Rs <span id="monthlyIncome"style="color:#4CAF50;">2000</span></div>
+          </div>
+
+          <div class="expenses-section">
+            <h2>Expenses</h2>
+            <div class="expense-items">
+              <div class="expense-item">
+                <label>Rent</label>
+                <input type="range" min="0" max="1000" value="0" id="rentExpense">
+                <span class="expense-value">Rs <span id="rentValue">0</span></span>
+              </div>
+              <div class="expense-item">
+                <label>Food</label>
+                <input type="range" min="0" max="500" value="0" id="foodExpense">
+                <span class="expense-value">Rs <span id="foodValue">0</span></span>
+              </div>
+              <div class="expense-item">
+                <label>Utilities</label>
+                <input type="range" min="0" max="300" value="0" id="utilitiesExpense">
+                <span class="expense-value">Rs <span id="utilitiesValue">0</span></span>
+              </div>
+              <div class="expense-item">
+                <label>Savings</label>
+                <input type="range" min="0" max="1000" value="0" id="savingsExpense">
+                <span class="expense-value">Rs <span id="savingsValue">0</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="nextMonth" class="action-btn">Next Month</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../firebase.js"></script>
+
+  <script src="../js/budget-game.js"></script>
+</body>
+</html>

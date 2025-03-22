@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP Simulator - FinLit Quest</title>
+    <link rel="stylesheet" href="../css/sip-simulator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <nav class="game-nav">
+            <a href="../game.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Games</a>
+            <h1>SIP Simulator</h1>
+            <div class="game-info">
+                <div class="score-display">
+                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                    <span id="score">0</span> points
+                </div>
+            </div>
+        </nav>
+
+        <main class="game-content">
+            <div class="sip-controls">
+                <div class="control-group">
+                    <label for="monthlyAmount">Monthly Investment (₹)</label>
+                    <input type="range" id="monthlyAmount" min="500" max="50000" step="500" value="5000">
+                    <span id="monthlyAmountValue">₹5,000</span>
+                </div>
+                <div class="control-group">
+                    <label for="duration">Investment Duration (Years)</label>
+                    <input type="range" id="duration" min="1" max="30" value="10">
+                    <span id="durationValue">10 years</span>
+                </div>
+                <div class="control-group">
+                    <label for="expectedReturn">Expected Annual Return (%)</label>
+                    <input type="range" id="expectedReturn" min="1" max="15" value="12">
+                    <span id="expectedReturnValue">12%</span>
+                </div>
+                <button id="calculateBtn" class="btn primary">Calculate Returns</button>
+            </div>
+
+           
+           <div class="results-section">
+            <div class="results-grid">
+                <div class="result-cards">
+                    <div class="result-card">
+                        <h3>Total Investment</h3>
+                        <div class="result-value" id="totalInvestment">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Estimated Returns</h3>
+                        <div class="result-value" id="estimatedReturns">₹0</div>
+                    </div>
+                    <div class="result-card highlight">
+                        <h3>Total Value</h3>
+                        <div class="result-value" id="totalValue">₹0</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sipChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="challenges-section">
+                <h2>SIP Challenges</h2>
+                <div class="challenge-cards" id="challengeCards"></div>
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+    </div>
+
+    <script src="../js/firebase.js"></script>
+    <script src="../js/sip-simulator.js"></script>
+</body>
+</html>

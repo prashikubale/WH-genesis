@@ -1,0 +1,382 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --success-color: #059669;
+    --error-color: #dc2626;
+    --warning-color: #d97706;
+    --dark-bg: #111827;
+    --darker-bg: #030712;
+    --card-bg: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+}
+
+
+.game-header {
+    background: linear-gradient(135deg, var(--card-bg), var(--dark-bg));
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.goal-card {
+    background: linear-gradient(135deg, var(--card-bg), var(--dark-bg));
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin: 1rem 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.5s ease;
+}
+
+.challenge-card {
+    background: linear-gradient(135deg, var(--card-bg), var(--dark-bg));
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-primary);
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--card-bg), var(--dark-bg));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--darker-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.game-header {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+.game-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-bg);
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--primary-color);
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.stat i {
+    color: var(--secondary-color);
+}
+
+.game-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.dashboard {
+    background-color: var(--dark-bg);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.goal-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--darker-bg);
+    border-radius: 5px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.3s ease;
+}
+
+.weekly-challenge {
+    margin: 2rem 0;
+}
+
+.challenge-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.challenge-content {
+    margin-bottom: 1rem;
+}
+
+.challenge-reward {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    color: var(--text-secondary);
+}
+
+.transaction-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.transaction-form input,
+.transaction-form select {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--darker-bg);
+    color: var(--text-primary);
+}
+
+.transactions-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+.transaction-item.income .transaction-amount {
+    color: var(--success-color);
+}
+
+.transaction-item.expense .transaction-amount {
+    color: var(--error-color);
+}
+
+.savings-tips {
+    background-color: var(--dark-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.tip {
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.achievements-panel {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--dark-bg);
+    border-radius: 12px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    opacity: 0.5;
+}
+
+.achievement.achieved {
+    opacity: 1;
+    border: 2px solid var(--success-color);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(110%);
+}
+
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+@media (max-width: 1024px) {
+    .game-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .transaction-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 1rem;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+}
